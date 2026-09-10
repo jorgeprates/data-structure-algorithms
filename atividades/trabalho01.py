@@ -8,15 +8,37 @@ class DynamicIntArray:
 
     def is_empty(self):
         #TODO: Retornar True se a lista estiver vazia, False caso contrário
+        if self.size == 0:
+            return True
+        else:
+            return False
 
     def get(self, index):
         #TODO: Retornar o valor do elemento no índice fornecido. Lançar IndexError se o índice for inválido.
+        if index < 0 or index >= self.capacity:
+            raise IndexError('Index out of range!')
+
+        return self.data[index]
+
 
     def set(self, index, value):
         #TODO: Definir o valor do elemento no índice fornecido. Lançar IndexError se o índice for inválido.
+        if index < 0 or index >= self.capacity:
+            raise IndexError('Index out of range!')
+        
+        self.data[index] = value
+        
+        
 
     def append(self, value):
         #TODO: Adicionar um elemento ao final da lista. Redimensionar o array interno se necessário.
+        if self.size < self.capacity:
+            self.data[self.size] = value
+            self.size += 1
+        else:
+            self._resize(self.capacity*2)
+            self.data[self.size] = value
+            self.size += 1
 
     def _resize(self, new_capacity):
         if new_capacity > self.capacity:
