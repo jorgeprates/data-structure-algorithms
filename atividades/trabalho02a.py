@@ -107,6 +107,14 @@ class DynamicIntArray:
 
         # SEU CÓDIGO AQUI
 
+        for i in range(index, self.size):
+            if i == self.size - 1:
+                self.data[i] = 0
+            self.data[i] = self.data[i + 1]
+
+        self.size -= 1
+        if self.size <  self.capacity//4:
+            self._resize(self.capacity//2)
     
 lista = DynamicIntArray()
 
