@@ -36,6 +36,19 @@ class SingleLinkedList:
             lista.append(30)   # head=10, tail=30
             print(lista)       # "10 -> 20 -> 30"
         """
+        if self.size == 0:
+            node = Node(data)
+            self.head = node
+            self.tail = node
+            self.size += 1
+        else:
+            node = self.head
+            while node.next:
+                node = node.next
+            node.next = Node(data)
+            self.tail = node.next
+            self.size += 1
+
         # SEU CÓDIGO AQUI.
 
     def insert(self, index, data):
@@ -59,6 +72,24 @@ class SingleLinkedList:
         """
        # SEU CÓDIGO AQUI.
 
+        if self.size == 0:
+            raise IndexError('Index out of range!')
+
+        node = self.head
+        for i in range(index - 1):
+            if node:
+                node = node.next
+            else:
+                raise IndexError('Index out of range!')
+
+        if node:
+            nodeToInsert = Node(data)
+            nodeToInsert.next = node.next
+            node.next = nodeToInsert
+            self.size+=1
+        else:
+            raise IndexError('Index out of range!')
+        
     def __str__(self):
         """
         Retorna uma representação string da lista (ex: 5 -> 23 -> 7 -> 13).
