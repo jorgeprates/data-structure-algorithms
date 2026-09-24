@@ -14,27 +14,31 @@ def is_balanced(expression):
     pilha = Stack()
 
     #------- COLOQUE SEU CÓDIGO AQUI -------
-
-
-
+    for i in range(len(expression)):
+        pilha.push(expression[i])
+    print(pilha)
     #---------------------------------------
 
 
 # Alguns Teste
-print(is_balanced("[{}(2+2)]{}")) #Esperado True
-print(is_balanced("[{}(2+2))]{}")) #Esperado False
-print(is_balanced("[{}])")) #Esperado False
+# print(is_balanced("[{}(2+2)]{}")) #Esperado True
+# print(is_balanced("[{}(2+2))]{}")) #Esperado False
+# print(is_balanced("[{}])")) #Esperado False
 
-print(" ")
-print(is_balanced(""))                         # Expressão vazia → True
-print(is_balanced("()"))                       # Um par de parênteses simples → True
-print(is_balanced("({[]})"))                   # Vários pares aninhados → True
-print(is_balanced("{[()()]()}"))               # Aninhamento complexo correto → True
-print(is_balanced("if (a[0] > b) { return c; }")) # Parênteses misturados com código → True
+# print(" ")
+# print(is_balanced(""))                         # Expressão vazia → True
+# print(is_balanced("()"))                       # Um par de parênteses simples → True
+# print(is_balanced("({[]})"))                   # Vários pares aninhados → True
+# print(is_balanced("{[()()]()}"))               # Aninhamento complexo correto → True
+# print(is_balanced("if (a[0] > b) { return c; }")) # Parênteses misturados com código → True
 
-print(" ")
-print(is_balanced("("))                        # Apenas abertura → False
-print(is_balanced("]"))                        # Apenas fechamento → False
-print(is_balanced("({[)]}"))                   # Ordem incorreta → False
-print(is_balanced("{[(()]}"))                  # Um fechamento errado no meio → False
-print(is_balanced("((()))]"))                  # Um fechamento extra → False
+# print(" ")
+# print(is_balanced("("))                        # Apenas abertura → False
+# print(is_balanced("]"))                        # Apenas fechamento → False
+# print(is_balanced("({[)]}"))                   # Ordem incorreta → False
+# print(is_balanced("{[(()]}"))                  # Um fechamento errado no meio → False
+# print(is_balanced("((()))]"))                  # Um fechamento extra → 
+
+"""
+
+"""
